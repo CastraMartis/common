@@ -27,7 +27,6 @@ class OutputStream {
     }
 
     fun writeFloat(float: Float) {
-        println(float.toBits())
        writeInt(float.toBits())
     }
 }

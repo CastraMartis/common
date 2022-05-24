@@ -31,7 +31,6 @@ class InputStream(val bytes: ArrayList<Byte>) {
 
     fun readFloat(): Float {
         val int = readInt()
-        println(int)
         return Float.fromBits(int)
     }
 
