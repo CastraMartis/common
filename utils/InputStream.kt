@@ -10,20 +10,37 @@ class InputStream(val bytes: ArrayList<Byte>) {
         return bytes[currentPosition++].toInt()
     }
 
+    fun readByte(): Byte {
+        return bytes[currentPosition++]
+    }
+
     fun readBoolean(): Boolean {
         return read() != 0
     }
 
     fun readShort(): Short {
-        return (read() shr 8 + read()).toShort()
+        return (read() shl 8 + read()).toShort()
     }
 
     fun readInt(): Int {
-        return read() shr 24 + read() shr 12 + read() shr 8 + read()
+        val one = (read() shl 24)
+        val two = (read() shl 12)
+        val three = (read() shl 8)
+        return one + two + three + read()
     }
 
     fun readFloat(): Float {
-        return Float.fromBits(readInt())
+        val int = readInt()
+        println(int)
+        return Float.fromBits(int)
+    }
+
+    fun amountLeft(): Int {
+        return bytes.size - currentPosition
+    }
+
+    fun getBytes(): MutableList<Byte> {
+        return bytes.subList(currentPosition, bytes.size)
     }
 
 }
