@@ -1,7 +1,5 @@
 package dev.scorbett123.common.utils
 
-import java.util.stream.Stream
-
 class InputStream(val bytes: ArrayList<Byte>) {
 
     var currentPosition: Int = 0

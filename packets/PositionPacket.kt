@@ -13,6 +13,8 @@ class PositionPacket(val x: Float, val y: Float, val z: Float): Packet() {
         outputStream.writeFloat(x)
         outputStream.writeFloat(y)
         outputStream.writeFloat(z)
+        println("$x $y $z")
+
     }
 
     fun toVec3(): Vec3 {
