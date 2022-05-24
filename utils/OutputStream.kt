@@ -1,6 +1,5 @@
 package dev.scorbett123.common.utils
 
-import java.util.stream.Stream
 
 class OutputStream {
 
@@ -16,18 +15,19 @@ class OutputStream {
 
     fun writeShort(short: Short) {
         val asInt = short.toInt()
-        write((asInt shl 8).toByte())
+        write((asInt shr 8).toByte())
         write(asInt.toByte())
     }
 
     fun writeInt(int: Int) {
-        write((int shl 24).toByte())
-        write((int shl 16).toByte())
-        write((int shl 8).toByte())
+        write((int shr 24).toByte())
+        write((int shr 16).toByte())
+        write((int shr 8).toByte())
         write(int.toByte())
     }
 
     fun writeFloat(float: Float) {
+        println(float.toBits())
        writeInt(float.toBits())
     }
 }
