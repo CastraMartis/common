@@ -26,7 +26,11 @@ class PositionPacket(val x: Float, val y: Float, val z: Float): Packet() {
         val id: Byte = 0x01
         fun read(input: InputStream): PositionPacket {
             val x = input.readFloat()
+
+
             val y = input.readFloat()
+
+
             val z = input.readFloat()
 
             return PositionPacket(x, y, z)
