@@ -21,6 +21,10 @@ class PositionPacket(val x: Float, val y: Float, val z: Float): Packet() {
         return Vec3(x, y, z)
     }
 
+    override fun toString(): String {
+        return "$x $y $z"
+    }
+
     companion object {
 
         val id: Byte = 0x01
