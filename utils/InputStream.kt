@@ -22,7 +22,7 @@ class InputStream(val bytes: ArrayList<Byte>) {
 
     fun readInt(): Int {
         val one = (read() shl 24)
-        val two = (read() shl 12)
+        val two = (read() shl 16)
         val three = (read() shl 8)
         return one + two + three + read()
     }
