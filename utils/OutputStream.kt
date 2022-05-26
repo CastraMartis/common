@@ -3,9 +3,9 @@ package dev.scorbett123.common.utils
 
 class OutputStream {
 
-    val bytes = ArrayList<Byte>()
+    val bytes = ArrayList<Int>()
 
-    fun write(byte: Byte) {
+    fun write(byte: Int) {
         bytes.add(byte)
     }
 
@@ -15,18 +15,19 @@ class OutputStream {
 
     fun writeShort(short: Short) {
         val asInt = short.toInt()
-        write((asInt shr 8).toByte())
-        write(asInt.toByte())
+        write(asInt shr 8)
+        write(asInt and 0xFF)
     }
 
     fun writeInt(int: Int) {
-        write((int shr 24).toByte())
-        write((int shr 16).toByte())
-        write((int shr 8).toByte())
-        write(int.toByte())
+        write((int shr 24) and 0xFF)
+        write((int shr 16) and 0xFF)
+        write((int shr 8) and 0xFF)
+        write(int and 0xFF)
     }
 
     fun writeFloat(float: Float) {
+        println(float.toBits())
        writeInt(float.toBits())
     }
 }

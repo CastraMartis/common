@@ -1,6 +1,6 @@
 package dev.scorbett123.common.utils
 
-class InputStream(val bytes: ArrayList<Byte>) {
+class InputStream(val bytes: List<Int>) {
 
     var currentPosition: Int = 0
 
@@ -9,7 +9,7 @@ class InputStream(val bytes: ArrayList<Byte>) {
     }
 
     fun readByte(): Byte {
-        return bytes[currentPosition++]
+        return bytes[currentPosition++].toByte()
     }
 
     fun readBoolean(): Boolean {
@@ -24,7 +24,8 @@ class InputStream(val bytes: ArrayList<Byte>) {
         val one = (read() shl 24)
         val two = (read() shl 16)
         val three = (read() shl 8)
-        return one + two + three + read()
+        val four = read()
+        return one + two + three + four
     }
 
     fun readFloat(): Float {
@@ -36,7 +37,7 @@ class InputStream(val bytes: ArrayList<Byte>) {
         return bytes.size - currentPosition
     }
 
-    fun getBytes(): MutableList<Byte> {
+    fun getRemainingBytes(): List<Int> {
         return bytes.subList(currentPosition, bytes.size)
     }
 
