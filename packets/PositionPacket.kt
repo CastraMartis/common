@@ -36,6 +36,7 @@ class PositionPacket(val x: Float, val y: Float, val z: Float): Packet() {
 
 
             val z = input.readFloat()
+            println("$x $y $z")
 
             return PositionPacket(x, y, z)
         }
