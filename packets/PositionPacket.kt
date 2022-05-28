@@ -1,8 +1,8 @@
 package dev.scorbett123.common.packets
 
+import dev.scorbett123.common.math.Vec3
 import dev.scorbett123.common.utils.InputStream
 import dev.scorbett123.common.utils.OutputStream
-import dev.scorbett123.common.math.Vec3
 
 class PositionPacket(val x: Float, val y: Float, val z: Float): Packet() {
 
@@ -35,7 +35,6 @@ class PositionPacket(val x: Float, val y: Float, val z: Float): Packet() {
 
 
             val z = input.readFloat()
-            println("$x $y $z")
 
             return PositionPacket(x, y, z)
         }
