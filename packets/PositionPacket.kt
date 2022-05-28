@@ -1,6 +1,6 @@
 package dev.scorbett123.common.packets
 
-import dev.scorbett123.common.math.Vec3
+import com.danielgergely.cgmath.vec3.Vec3
 import dev.scorbett123.common.utils.InputStream
 import dev.scorbett123.common.utils.OutputStream
 
